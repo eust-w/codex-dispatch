@@ -3,7 +3,7 @@
 ## Verified locally
 
 - Node 24 / macOS: 10 automated tests passed, including real SQLite files, REST CRUD, foreign Origin/Host rejection, worker-only completion states, database claim exclusion, fail-closed instance locking and shutdown with idle TCP connections.
-- Two opt-in integration runs passed with official Codex CLI 0.165.0, authenticated through the user's existing account. No fake executable or model response was used.
+- Three opt-in integration runs passed with official Codex CLI 0.165.0, authenticated through the user's existing account. The third run used the repaired global CLI installation. No fake executable or model response was used.
 - Each integration run verified real stdout, FIFO timestamps, overlapping independent sessions, recalling an earlier task output through Shadow Context, persisted results after restart, pending-task continuation, shutdown interruption, 100ms timeout failure and invalid-working-directory failure.
 - SQLite integrity_check returned `ok`.
 - Browser checks at 1440, 1024 and 390px passed: default Chinese, English switching, filters, unsaved task draft preservation, no document-width overflow and no page errors in isolated Chromium.
@@ -28,7 +28,8 @@ A Chrome extension in the test environment injected an Origin header missing the
 Hard crashes retain the instance lock and require an operator to inspect and stop orphan processes before removing it. Different sessions sharing a directory can conflict. No exactly-once filesystem guarantee, native Codex conversation resume, Desktop synchronization, npm registry publication or hosted multi-user support is claimed.
 
 Detailed raw execution logs and browser artifacts remain local and ignored because they can contain machine paths and CLI configuration.
-# Post-release CI follow-up
+
+## Post-release CI follow-up
 
 The first main-branch matrix passed. A later tag-triggered Ubuntu/Node 24 run exposed an unhandled `ECONNRESET` in the shutdown test's client socket. The server had intentionally closed an idle connection; Linux can report reset rather than clean EOF. The test now listens for socket errors, permits only `ECONNRESET`, and requires both socket closure and successful server exit. The runtime shutdown behavior is unchanged. This test-harness fix is included in `v0.1.0-alpha.2`; the failed alpha.1 run remains in CI history.
-
+The corrected shutdown test also passed 20 consecutive local real-socket runs.

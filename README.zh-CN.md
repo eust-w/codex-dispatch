@@ -8,7 +8,7 @@
 
 ![Codex Dispatch 真实任务界面](https://github.com/eust-w/codex-dispatch/releases/download/v0.1.0-alpha.1/zh-overview.png)
 
-[中文介绍视频](https://www.douyin.com/video/7701821691978124554) · [英文介绍视频](https://x.com/eustancewu/status/2115544507274182907) · [版本与视频下载](https://github.com/eust-w/codex-dispatch/releases/tag/v0.1.0-alpha.1) · [真实测试记录](docs/verification-2026-10-29.md)
+[中文介绍视频](https://www.douyin.com/video/7701821691978124554) · [英文介绍视频](https://x.com/eustancewu/status/2115544507274182907) · [版本与视频下载](https://github.com/eust-w/codex-dispatch/releases/tag/v0.1.0-alpha.2) · [真实测试记录](docs/verification-2026-10-29.md)
 
 视频采用真实界面剪辑和合成旁白，等待已缩短，不是模拟执行。制作脚本见 [media](media/README.md)。
 

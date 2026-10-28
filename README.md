@@ -8,7 +8,7 @@ Independent community project. Not affiliated with or endorsed by OpenAI. **Alph
 
 ![Codex Dispatch running with real completed tasks](https://github.com/eust-w/codex-dispatch/releases/download/v0.1.0-alpha.1/en-overview.png)
 
-[Watch the 56-second introduction](https://x.com/eustancewu/status/2115544507274182907) · [Chinese introduction](https://www.douyin.com/video/7701821691978124554) · [Release and video downloads](https://github.com/eust-w/codex-dispatch/releases/tag/v0.1.0-alpha.1) · [Verification report](docs/verification-2026-10-29.md)
+[Watch the 56-second introduction](https://x.com/eustancewu/status/2115544507274182907) · [Chinese introduction](https://www.douyin.com/video/7701821691978124554) · [Release and video downloads](https://github.com/eust-w/codex-dispatch/releases/tag/v0.1.0-alpha.2) · [Verification report](docs/verification-2026-10-29.md)
 
 Videos use edited real UI captures and synthetic narration, not simulated execution. See [media sources](media/README.md).
 
