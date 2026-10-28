@@ -1,0 +1,16 @@
+node_modules/
+data/
+.DS_Store
+npm-debug.log*
+.playwright-mcp/
+codex-queue-full-*.png
+.env
+.env.*
+!.env.example
+artifacts/
+output/
+tmp/
+*.tgz
+*.sqlite*
+playwright-report/
+test-results/

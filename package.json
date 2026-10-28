@@ -1,0 +1,32 @@
+{
+  "name": "@eust-w/codex-dispatch",
+  "version": "0.1.0-alpha.1",
+  "description": "Prompt queue web UI for real Codex CLI task execution.",
+  "main": "bin.js",
+  "bin": {
+    "codex-dispatch": "./bin.js",
+    "codex-queue": "./bin.js"
+  },
+  "scripts": {
+    "start": "node bin.js",
+    "test": "node --test test/*.test.js",
+    "test:live": "node scripts/live-test.js"
+  },
+  "files": ["bin.js", "bin/", "core/", "db/", "server/", "worker/", "web/", "LICENSE", "README.md", "README.zh-CN.md", "SECURITY.md", "CONTRIBUTING.md", "THIRD_PARTY_NOTICES.md"],
+  "repository": { "type": "git", "url": "https://github.com/eust-w/codex-dispatch.git" },
+  "keywords": [
+    "codex",
+    "queue",
+    "sqlite",
+    "cli"
+  ],
+  "author": "eust-w",
+  "license": "MIT",
+  "dependencies": {
+    "better-sqlite3": "^11.10.0",
+    "express": "^4.21.2"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
