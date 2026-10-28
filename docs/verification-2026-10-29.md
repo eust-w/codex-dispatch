@@ -28,3 +28,7 @@ A Chrome extension in the test environment injected an Origin header missing the
 Hard crashes retain the instance lock and require an operator to inspect and stop orphan processes before removing it. Different sessions sharing a directory can conflict. No exactly-once filesystem guarantee, native Codex conversation resume, Desktop synchronization, npm registry publication or hosted multi-user support is claimed.
 
 Detailed raw execution logs and browser artifacts remain local and ignored because they can contain machine paths and CLI configuration.
+# Post-release CI follow-up
+
+The first main-branch matrix passed. A later tag-triggered Ubuntu/Node 24 run exposed an unhandled `ECONNRESET` in the shutdown test's client socket. The server had intentionally closed an idle connection; Linux can report reset rather than clean EOF. The test now listens for socket errors, permits only `ECONNRESET`, and requires both socket closure and successful server exit. The runtime shutdown behavior is unchanged. This test-harness fix is included in `v0.1.0-alpha.2`; the failed alpha.1 run remains in CI history.
+

@@ -17,13 +17,18 @@ test('graceful shutdown closes preconnected browser sockets', async t => {
     child.stdout.on('data',b=>{const m=String(b).match(/127\.0\.0\.1:(\d+)/);if(m){clearTimeout(timer);resolve(+m[1]);}});
   });
   socket=net.connect(port,'127.0.0.1');
+  const socketErrors=[];
+  socket.on('error',error=>socketErrors.push(error));
   await once(socket,'connect');
+  // Linux may reset an accepted idle TCP connection instead of sending FIN.
+  const disconnected=new Promise(resolve=>socket.once('close',resolve));
   const done=once(child,'exit');
   child.kill('SIGTERM');
   let timer;
-  const result=await Promise.race([done,new Promise(resolve=>{timer=setTimeout(()=>resolve(null),2500);})]);
+  const result=await Promise.race([Promise.all([done,disconnected]),new Promise(resolve=>{timer=setTimeout(()=>resolve(null),2500);})]);
   clearTimeout(timer);
   assert.ok(result,'Server must exit even with an idle browser socket');
-  assert.equal(result[0],0);
+  assert.equal(result[0][0],0);
+  assert.ok(socketErrors.every(error=>error.code==='ECONNRESET'),'Only shutdown resets are expected');
   assert.equal(fs.existsSync(path.join(dir,'data/.dispatch-lock')),false);
 });
