@@ -6,6 +6,12 @@
 
 独立社区项目，非 OpenAI 官方产品，不代表 OpenAI 背书。目前为 **Alpha**，支持 macOS / Linux，不是可直接暴露到公网的多人服务。
 
+![Codex Dispatch 真实任务界面](https://github.com/eust-w/codex-dispatch/releases/download/v0.1.0-alpha.1/zh-overview.png)
+
+[中文介绍视频](https://www.douyin.com/video/7701821691978124554) · [英文介绍视频](https://x.com/eustancewu/status/2115544507274182907) · [版本与视频下载](https://github.com/eust-w/codex-dispatch/releases/tag/v0.1.0-alpha.1) · [真实测试记录](docs/verification-2026-10-29.md)
+
+视频采用真实界面剪辑和合成旁白，等待已缩短，不是模拟执行。制作脚本见 [media](media/README.md)。
+
 ## 能力
 
 - 项目工作目录 → 会话 → FIFO 队列；同一会话串行，不同会话可并发。
